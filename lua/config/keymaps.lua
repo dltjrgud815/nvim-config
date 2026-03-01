@@ -15,3 +15,8 @@ nmap("<C-l>", "<C-w>l", { desc = "Window right" })
 
 -- Clear Search Highlight
 nmap("<leader>h", ":nohlsearch<CR>", { desc = "off search highlight"})
+
+-- indent
+vmap("<", "<gv")
+vmap(">", ">gv")
+
