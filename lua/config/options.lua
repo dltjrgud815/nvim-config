@@ -20,14 +20,15 @@ opt.termguicolors = true
 opt.signcolumn = "yes"
 
 -- etc
-vim.opt.termguicolors = true
 vim.opt.clipboard = "unnamedplus"
-opt.encoding = "UTF-8"
+opt.encoding = "utf-8"
 opt.cmdheight = 1
-opt.scrolloff = 10
+opt.scrolloff = 4
+opt.sidescrolloff = 8
+opt.updatetime = 250
+opt.timeoutlen = 400
 opt.mouse:append("a")
 opt.undofile = true
 vim.opt.splitright = true
 vim.opt.splitbelow = true
 opt.completeopt = { "menuone", "noselect" }
-

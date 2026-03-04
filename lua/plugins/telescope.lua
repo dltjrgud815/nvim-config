@@ -12,5 +12,19 @@ return {
       keymap.nmap("<leader>fg", builtin.live_grep)
       keymap.nmap("<leader>fb", builtin.buffers)
       keymap.nmap("<leader>fh", builtin.help_tags)
-    end
+    end,
+    {
+      'nvim-telescope/telescope-ui-select.nvim',
+      config = function()
+        require("telescope").setup {
+          extensions = {
+            ["ui-select"] = {
+              require("telescope.themes").get_dropdown {
+              }
+            }
+          }
+        }
+        require("telescope").load_extension("ui-select")
+      end
+    }
 }
