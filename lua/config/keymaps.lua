@@ -19,8 +19,16 @@ nmap("<C-l>", "<C-w>l", { desc = "Window right" })
 nmap("<leader>h", ":nohlsearch<CR>", { desc = "off search highlight"})
 
 -- Quickfix navigation
-nmap("<leader>x", "<cmd>copen<CR>", { desc = "Quickfix open" })
-nmap("<leader>c", "<cmd>cclose<CR>", { desc = "Quickfix close" })
+-- <leader>c 는 <leader>ca / <leader>cf 와 접두사가 겹쳐서 하나의 토글 키로 합침
+nmap("<leader>x", function()
+  for _, win in ipairs(vim.fn.getwininfo()) do
+    if win.quickfix == 1 then
+      vim.cmd("cclose")
+      return
+    end
+  end
+  vim.cmd("copen")
+end, { desc = "Quickfix toggle" })
 nmap("]q", "<cmd>cnext<CR>", { desc = "Quickfix next" })
 nmap("[q", "<cmd>cprev<CR>", { desc = "Quickfix prev" })
 

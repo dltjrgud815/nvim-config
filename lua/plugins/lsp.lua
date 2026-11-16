@@ -2,7 +2,7 @@ return {
   { "mason-org/mason.nvim" },
   {
     "WhoIsSethDaniel/mason-tool-installer.nvim",
-    dependencies = { "williamboman/mason.nvim" },
+    dependencies = { "mason-org/mason.nvim" },
     opts = {
       ensure_installed = {
         "clang-format",
@@ -13,9 +13,9 @@ return {
         "prettierd",
         "isort",
         "black",
-        "rustfmt",
+        -- rustfmt 은 mason 에서 제거됨: rustup component add rustfmt 로 설치
       },
-      auto_update = true,
+      auto_update = false, -- 매 실행마다 업데이트하지 않음 (:MasonToolsUpdate 로 수동 갱신)
       run_on_start = true,
     },
   },
